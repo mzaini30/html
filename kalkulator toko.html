@@ -1,8 +1,24 @@
-<script>
-data = [
-"12 mini wim", 950, 3
-]
+<title>Kalkulator Toko</title>
+<meta name='viewport' content='width=device-width, initial-scale=1, user-scalable=no'>
 
+<style>
+.isian {
+width: 100%;
+height: 10rem;
+}
+</style>
+
+<form>
+<textarea class='isian'' placeholder='12 mini, 900, 4
+20 bmx, 1000, 6'></textarea>
+</form>
+
+<table border='1'>
+
+</table>
+
+<script src='.vendor/jquery/jquery.min.js'></script>
+<script>
 function matrix(list, elemen_per_sub_array){
     list_matrix = []
     i = 0
@@ -16,32 +32,13 @@ function matrix(list, elemen_per_sub_array){
     }
     return list_matrix 
 }
-data = matrix(data, 3)
-teks = ""
-teks += "<table border='1'><tr class='tebal'><td>Barang</td><td>Harga</td><td>Jumlah</td><td>Total</td></tr>"
-for (n in data){
-    teks += "<tr>"
-    teks += "<td>" + data[n][0] + ' </td><td> ' + data[n][1].toLocaleString('id') + ' </td><td> ' + data[n][2].toLocaleString('id') + ' </td><td> ' + (data[n][1] * data[n][2]).toLocaleString('id') + '</td>'
-    teks += "</tr>"
-}
-total = 0
-for (n in data){
-    total += data[n][1] * data[n][2]
-}
-teks += '<tr class="miring"><td colspan="3">Jumlah</td><td>' + total.toLocaleString('id') + '</td></tr>'
-teks += "</table>"
-document.write(teks)
-</script>
-<style>
-.tebal td {
-    font-weight:bold;
+
+hitung = function(){
+$('.isian').on('keyup', function(){
+data = $('.isian').val().split('\n').split(', ')
+hasil = matrix(data, 3)
+})
 }
 
-.miring td {
-    font-style:italic;
-}
-</style>
-<meta name='viewport' content='width=device-width, initial-scale=1, user-scalable=no'>
-<title>
-Kalkulator Toko
-</title>
+hitung()
+</script>

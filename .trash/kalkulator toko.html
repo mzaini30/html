@@ -1,0 +1,47 @@
+<script>
+data = [
+"12 mini wim", 950, 8
+]
+
+function matrix(list, elemen_per_sub_array){
+    list_matrix = []
+    i = 0
+    k = 0
+    for (i = 0, k = -1; i < list.length; i++){
+        if (i % elemen_per_sub_array === 0){
+            k++
+            list_matrix[k] = []
+        }
+        list_matrix[k].push(list[i])
+    }
+    return list_matrix 
+}
+data = matrix(data, 3)
+teks = ""
+teks += "<table border='1'><tr class='tebal'><td>Barang</td><td>Harga</td><td>Jumlah</td><td>Total</td></tr>"
+for (n in data){
+    teks += "<tr>"
+    teks += "<td>" + data[n][0] + ' </td><td> ' + data[n][1].toLocaleString('id') + ' </td><td> ' + data[n][2].toLocaleString('id') + ' </td><td> ' + (data[n][1] * data[n][2]).toLocaleString('id') + '</td>'
+    teks += "</tr>"
+}
+total = 0
+for (n in data){
+    total += data[n][1] * data[n][2]
+}
+teks += '<tr class="miring"><td colspan="3">Jumlah</td><td>' + total.toLocaleString('id') + '</td></tr>'
+teks += "</table>"
+document.write(teks)
+</script>
+<style>
+.tebal td {
+    font-weight:bold;
+}
+
+.miring td {
+    font-style:italic;
+}
+</style>
+<meta name='viewport' content='width=device-width, initial-scale=1, user-scalable=no'>
+<title>
+Kalkulator Toko
+</title>
