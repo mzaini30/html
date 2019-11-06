@@ -6,15 +6,32 @@
 width: 100%;
 height: 10rem;
 }
+.tebal * {
+font-weight: bold;
+}
+.miring * {
+font-style: italic;
+}
 </style>
 
 <form>
-<textarea class='isian'' placeholder='12 mini, 900, 4
+<textarea class='isian'' placeholder='Contoh:
+12 mini, 900, 4
 20 bmx, 1000, 6'></textarea>
 </form>
 
 <table border='1'>
-
+<tr class='tebal'>
+<td>Barang</td>
+<td>Harga</td>
+<td>Jumlah</td>
+<td>Total</td>
+</tr>
+<tbody class='isi'></tbody>
+<tr class='miring'>
+<td colspan='3'>Jumlah</td>
+<td class='jumlah'>0</td>
+</tr>
 </table>
 
 <script src='.vendor/jquery/jquery.min.js'></script>
@@ -34,11 +51,29 @@ function matrix(list, elemen_per_sub_array){
 }
 
 hitung = function(){
-$('.isian').on('keyup', function(){
-data = $('.isian').val().split('\n').split(', ')
+localStorage.setItem('kalkulator', $('.isian').val())
+data = $('.isian').val().split(/[(\n)(,.)]/)
 hasil = matrix(data, 3)
-})
+teks = ''
+jumlah = []
+for (n in hasil){
+kali = Number(hasil[n][1]) * Number(hasil[n][2])
+teks += '<tr><td>' + hasil[n][0] + '</td><td>' + Number(hasil[n][1]).toLocaleString('id') + '</td><td>' + Number(hasil[n][2]).toLocaleString('id') + '</td><td>' + kali.toLocaleString('id') + '</td></tr>'
+jumlah.push(kali)
+}
+total_semua = 0
+for (n in jumlah){
+total_semua += jumlah[n]
+}
+$('.isi').html(teks)
+$('.jumlah').html(total_semua.toLocaleString('id'))
 }
 
+$('.isian').on('keyup', function(){
 hitung()
+})
+if (localStorage.getItem('kalkulator')){
+$('.isian').val(localStorage.getItem('kalkulator'))
+hitung()
+}
 </script>
