@@ -35,7 +35,7 @@ SOFTWARE.
 	$color	= "light";
 	
 	// ADD SPECIFIC FILES YOU WANT TO IGNORE HERE
-	$ignore_file_list = array( ".htaccess", "Thumbs.db", ".DS_Store", "index.php", '.git', '.project', '.template.html', '.trash', '.vendor');
+	$ignore_file_list = array( ".htaccess", "Thumbs.db", ".DS_Store", "index.php", '.git', '.project', '.template.html', '.trash', '.vendor', '.tools');
 	
 	// ADD SPECIFIC FILE EXTENSIONS YOU WANT TO IGNORE HERE, EXAMPLE: array('psd','jpg','jpeg')
 	$ignore_ext_list = array( );
