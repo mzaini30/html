@@ -42,7 +42,7 @@
 	<script>
 		ubah = function(){
 			localStorage.setItem('ngaji', $('.isian').val())
-			data = $('.isian').val().split('\n')
+			data = $('.isian').val().split('\n').reverse()
 			selisih = []
 			for (n in data){
 			    now = Number(data[n])
