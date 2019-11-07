@@ -1,5 +1,15 @@
 {% extends 'layout/default.twig' %}
 
 {% block isi %}
-    <p>Halo</p>
+    <div class="isi">
+    	{% for x in data %}
+    	    <div class="panel panel-default">
+    	    	<div class="panel-heading">
+    	    		{{ x.judul }}
+    	    		<a href="#!" class="close">&times;</a>
+    	    	</div>
+    	    	<div class="panel-body"></div>
+    	    </div>
+    	{% endfor %}
+    </div>
 {% endblock %}
