@@ -94,7 +94,7 @@
 			$('.meter_rata_rata').attr('value', Math.floor(rata2 / tertinggi * 100))
 			$('.banyak').html(data.length)
 		}
-		$('.isian').on('keyup', function(){
+		$('.isian, input').on('keyup', function(){
 			ubah()
 		})
 		if (localStorage.getItem('selesai baca')){
