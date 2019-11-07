@@ -9,6 +9,14 @@
 		body {
 			padding-top: 70px;
 		}
+
+		img {
+			max-width: 100%;
+		}
+
+		.isinya-gambar {
+			padding: 0;
+		}
 	</style>
 </head>
 <body>
@@ -38,5 +46,6 @@
 	</div>
 	<script src="{{ base_url() }}aset/vendor/jquery/jquery-3.4.1.min.js"></script>
 	<script src="{{ base_url() }}aset/vendor/bootstrap/js/bootstrap.min.js"></script>
+	{% block skrip %}{% endblock %}
 </body>
 </html>

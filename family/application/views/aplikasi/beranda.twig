@@ -6,10 +6,25 @@
     	    <div class="panel panel-default">
     	    	<div class="panel-heading">
     	    		{{ x.judul }}
-    	    		<a href="#!" class="close">&times;</a>
+    	    		<a href="#!" class="close" data-hapus='{{ x.id }}'>&times;</a>
     	    	</div>
-    	    	<div class="panel-body"></div>
+    	    	<div class="panel-body isinya-gambar">
+    	    		<img src="{{ base_url() }}aset/gambar/{{ x.gambar }}" alt="">
+    	    	</div>
     	    </div>
     	{% endfor %}
     </div>
+{% endblock %}
+
+{% block skrip %}
+	<script>
+	    {% for x in data %}
+	        $('[data-hapus={{ x.id }}]').click(function(){
+	        	hapus_kah = confirm('Hapus kah?')
+	        	if (hapus_kah){
+	        		location.href = '{{ site_url() }}hapus/{{ x.id }}'
+	        	}
+	        })
+	    {% endfor %}
+    </script>
 {% endblock %}
