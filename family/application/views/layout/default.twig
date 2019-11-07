@@ -17,6 +17,14 @@
 		.isinya-gambar {
 			padding: 0;
 		}
+
+		.sembunyi {
+			display: none;
+		}
+
+		.bagian-cari {
+			margin-top: .7rem;
+		}
 	</style>
 </head>
 <body>
@@ -44,6 +52,7 @@
 	<div class="container">
 		{% block isi %}{% endblock %}
 	</div>
+	{% block di_luar_container %}{% endblock %}
 	<script src="{{ base_url() }}aset/vendor/jquery/jquery-3.4.1.min.js"></script>
 	<script src="{{ base_url() }}aset/vendor/bootstrap/js/bootstrap.min.js"></script>
 	{% block skrip %}{% endblock %}
