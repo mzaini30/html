@@ -2,7 +2,10 @@
 
 {% block isi %}
 	{% if info %}
-		<div class="alert alert-success barang">Data berhasil dihapus</div>
+		<div class="alert alert-success barang">
+			Data berhasil dihapus
+			<div class="close tutup">&times;</div>
+		</div>
 	{% endif %}
     <div class="isi">
     	{% for x in data %}

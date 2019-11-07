@@ -57,5 +57,12 @@
 	<script src="{{ base_url() }}aset/vendor/jquery/jquery-3.4.1.min.js"></script>
 	<script src="{{ base_url() }}aset/vendor/bootstrap/js/bootstrap.min.js"></script>
 	{% block skrip %}{% endblock %}
+	<script>
+		$('.tutup').each(function(){
+			$(this).click(function(){
+				$(this).parent().addClass('sembunyi')
+			})
+		})
+	</script>
 </body>
 </html>

@@ -3,7 +3,10 @@
 {% block isi %}
     <h1>Tambah Data</h1>
     {% if info %}
-		<div class="alert alert-success">Data berhasil diupload</div>
+		<div class="alert alert-success">
+			Data berhasil diupload
+			<div class="close tutup">&times;</div>
+		</div>
     {% endif %}
     <form method="post" enctype="multipart/form-data">
     	<div class="form-group">
