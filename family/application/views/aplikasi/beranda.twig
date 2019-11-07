@@ -23,7 +23,7 @@
     <div class="navbar navbar-default navbar-fixed-bottom">
     	<div class="container">
     		<form action="" class="bagian-cari">
-    			<input type="tel" class="form-control">
+    			<input type="tel" class="form-control cari-di-sini">
     		</form>
     	</div>
     </div>
@@ -39,5 +39,13 @@
 	        	}
 	        })
 	    {% endfor %}
+	    $('.cari-di-sini').on('keyup', function(){
+	    	$('.barang').addClass('sembunyi')
+	    	$('.barang').each(function(){
+				if ($(this).is(':contains(' + $('.cari-di-sini').val() + ')')) {
+					$(this).removeClass('sembunyi')
+				}
+			})
+	    })
     </script>
 {% endblock %}
