@@ -1,0 +1,115 @@
+<html>
+<head>
+	<title>Selesai Baca</title>
+	<meta charset="utf-8">
+	<meta name='viewport' content='width=device-width, initial-scale=1, user-scalable=no'>
+	<style type="text/css">
+		textarea {
+			width: 100%;
+			height: 8.5rem;
+		}
+
+		.tebal * {
+			font-weight: bold;
+		}
+
+.metadata input {
+  width: 100%;
+}
+	</style>
+</head>
+<body>
+	<form action="">
+
+<table class='metadata'>
+  <tr>
+    <td>
+      <input type='text' placeholder='Judul' class='judul'>
+    </td>
+    <td>
+      <input type='text' placeholder='Penulis' class='penulis'>
+    </td>
+    <td>
+      <input type='tel' placeholder='Total halaman' class='total-halaman'>
+    </td>
+  </tr>
+</table>
+
+		<textarea class="isian"></textarea>
+	</form>
+	<table border="1">
+		<tr>
+			<td colspan="2">Banyak</td>
+			<td class="banyak">0</td>
+		</tr>
+		<tr class="tebal">
+			<td>Tertinggi</td>
+			<td class="tertinggi">0</td>
+			<td><meter min="0" max="100" value="100" class="meter_tertinggi"></meter></td>
+		</tr>
+		<tr>
+			<td>Rata-Rata</td>
+			<td class="rata_rata">0</td>
+			<td><meter min="0" max="100" value="0" class="meter_rata_rata"></meter></td>
+		</tr>
+		<tr>
+			<td colspan="3">&nbsp;</td>
+		</tr>
+		<tbody class="isi"></tbody>
+	</table>
+	<script type="text/javascript" src=".vendor/jquery/jquery.min.js"></script>
+	<script>
+		ubah = function(){
+			localStorage.setItem('selesai baca', $('.isian').val())
+			localStorage.setItem('judul', $('.judul').val())
+			localStorage.setItem('penulis', $('.penulis').val())
+			localStorage.setItem('total halaman', $('.total-halaman').val())
+			data = $('.isian').val().split('\n').reverse()
+			selisih = []
+			for (n in data){
+			    now = Number(data[n])
+			    next = Number(data[Number(n) + 1])
+                   selisih.push(now - next)
+			}
+			selisih[selisih.length - 1] = 0
+			tertinggi = 0
+			for (n in data){
+			    if (Number(selisih[n]) > Number(tertinggi)){
+			        tertinggi = Number(selisih[n])
+			    }
+			}
+			total = 0
+			for (n in data){
+			    total += Number(selisih[n])
+			}
+			rata2 = Number(total / data.length)
+			hasil = ''
+			data_baru = data.slice(0, 5)
+			for (n in data_baru){
+				hasil += '<tr><td>' + data_baru[n] + '</td><td>' + selisih[n] + '</td><td><meter min="0" max="100" value="' + Math.floor(selisih[n]) / tertinggi * 100 + '"></meter></td></tr>'
+			}
+			$('.isi').html(hasil)
+			$('.tertinggi').html(tertinggi)
+			$('.rata_rata').html(Math.floor(rata2))
+			$('.meter_rata_rata').attr('value', Math.floor(rata2 / tertinggi * 100))
+			$('.banyak').html(data.length)
+		}
+		$('.isian').on('keyup', function(){
+			ubah()
+		})
+		if (localStorage.getItem('selesai baca')){
+			$('.isian').val(localStorage.getItem('selesai baca'))
+		}
+		if (localStorage.getItem('judul')){
+			$('.judul').val(localStorage.getItem('judul'))
+		}
+		if (localStorage.getItem('penulis')){
+			$('.penulis').val(localStorage.getItem('penulis'))
+		}
+		if (localStorage.getItem('total halaman')){
+			$('.total-halaman').val(localStorage.getItem('total halaman'))
+		}
+ubah()
+	</script>
+</body>
+</html>
