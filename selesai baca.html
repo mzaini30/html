@@ -71,7 +71,7 @@
 			    next = Number(data[Number(n) + 1])
                    selisih.push(now - next)
 			}
-			selisih[selisih.length - 1] = 0
+			selisih[selisih.length - 1] = data[data.length - 1]
 			tertinggi = 0
 			for (n in data){
 			    if (Number(selisih[n]) > Number(tertinggi)){
