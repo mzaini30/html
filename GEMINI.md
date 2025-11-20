@@ -1,5 +1,5 @@
 - Buat web dengan menggunakan HTML saja (frontend only)
-- Styling menggunakan Bootstrap yang filenya ada di library/bootstrap.min.css
+- Styling menggunakan Bootstrap yang filenya ada di library/bootstrap.min.css dan library/bootstrap.min.js
 - Untuk reactivity, menggunakan Petite Vue yang filenya ada di library/petite-vue.iife.js
 - Utamakan responsive mode
 - Untuk database, menggunakan localforage yang filenya ada di library/localforage.min.js
@@ -126,7 +126,6 @@ Contoh kalau nomor WA terdaftar:
   }
 }
 
-- Utamakan menggunakan web worker supaya proses script bisa jalan di background
 - Untuk AI, menggunakan Gemini dengan key AIzaSyB0ZdbSRI9TiHr6vJeYpdSvee6C11rTrTI dengan contoh curl:
 
 curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent" \
